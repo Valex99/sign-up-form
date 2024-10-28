@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Custom variables */
+  --invalid-border: #b92326;
+  --invalid-background: rgba(185, 35, 38, 0.25);
+  --valid-border: #8bc34a;
+  --valid-background: rgba(139, 195, 74, 0.25);
+}
+
 body {
   display: flex;
 }
@@ -14,97 +22,6 @@ img {
   /* Ensures the image covers the entire container without stretching */
   object-fit: cover;
 }
-
-.image-container {
-  height: 100vh;
-  width: 40%;
-
-  position: relative;
-}
-
-.content-container {
-  height: 100vh;
-  width: 60%;
-
-  padding-top: 40px;
-  background-color: rgba(214, 214, 214, 0.649);
-}
-
-.content-header-div {
-  padding-left: 40px;
-  padding-bottom: 54px;
-  font-family: "Sofia", cursive;
-}
-
-
-.content-description-div {
-  font-size: 30px;
-  padding-left: 40px;
-  font-family: "Sofia", cursive;
-
-  background-color: rgba(222, 184, 135, 0.685);
-  padding-right: 280px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.call-to-action-div {
-  font-size: 25px;
-  font-weight: bold;
-  padding-left: 40px;
-  font-family: "Sofia", cursive;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/**/
-.logo-name-div {
-  position: absolute;
-  background: black;
-  opacity: 0.6;
-  /*THIS MAKES THE ELEMENT POSITIONED ABSOLUTE - TOP / LEFT / RIGHT PROPERTIES */
-  top: 15%;
-  height: 120px;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.heading {
-  font-family: dynapuff, sans-serif;
-  font-size: 50px;
-  position: absolute;
-  color: wheat;
-  top: 10px;
-  left: 90px;
-}
-
-.form-div {
-  flex-grow: 1;
-  background-color: white;
-  padding: 40px;
-
-  display: flex;
-  flex-direction: column;
-  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
-}
-/*   */
-.form-item-div {
-  position: relative;
-  margin-bottom: 40px;
-  display: inline-block;
-  width: 40%;
-}
-
-/* EXPERIMENTAL ADDED */
-.last-row {
-  position: relative;
-  display: inline-block;
-  width: 40%;
-}
-/* */
 
 label {
   display: block;
@@ -130,12 +47,6 @@ input {
   padding-top: 10px;
 }
 
-.sofia-regular {
-  font-family: "Sofia", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 button {
   padding: 10px 20px;
   background-color: rgb(222, 184, 135);
@@ -144,28 +55,109 @@ button {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-
   margin-top: 40px;
 }
 
-/* EDITING FORM INPUTS */
-/* 1 */
+.image-container {
+  height: 100vh;
+  width: 40%;
+  position: relative;
+}
+
+.content-container {
+  height: 100vh;
+  width: 60%;
+  padding-top: 40px;
+  background-color: rgba(214, 214, 214, 0.649);
+}
+
+.content-header-div {
+  padding-left: 40px;
+  padding-bottom: 54px;
+  font-family: "Sofia", cursive;
+}
+
+.content-description-div {
+  font-size: 30px;
+  padding-left: 40px;
+  font-family: "Sofia", cursive;
+  background-color: rgba(222, 184, 135, 0.685);
+  padding-right: 280px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.call-to-action-div {
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 40px;
+  font-family: "Sofia", cursive;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo-name-div {
+  background: black;
+  opacity: 0.6;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+}
+
+.heading {
+  font-family: dynapuff, sans-serif;
+  font-size: 50px;
+  color: wheat;
+  position: absolute;
+  top: 10px;
+  left: 90px;
+}
+
+.form-div {
+  flex-grow: 1;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.form-item-div {
+  position: relative;
+  margin-bottom: 40px;
+  display: inline-block;
+  width: 40%;
+}
+
+.last-row {
+  position: relative;
+  display: inline-block;
+  width: 40%;
+}
+
+.sofia-regular {
+  font-family: "Sofia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 label:not(:focus) {
   opacity: 0;
   transition: opacity 0s;
 }
 
-/* 2 */
-/* This makes placeholder slowly disappear once input fields is clicked on */
 input:focus::placeholder {
   color: transparent;
   transition: color 0.3s;
 }
 
-/* Invalid used to be input[type="text"] + code */
 input:focus:invalid {
   outline: none;
-  border: 1px solid #b92326;
+  border: 1px solid var(--invalid-border);
 }
 
 /* Show label when input is focused or not empty */
@@ -174,7 +166,7 @@ input:focus:invalid {
 .input-field:not(:placeholder-shown) + .input-label {
   font-size: 12px;
   /*color: #555;*/
-  color: #b92326;
+  color: var(--invalid-border);
   opacity: 1; /* Makes the label visible */
   background-color: white;
   padding: 0 5px;
@@ -182,54 +174,49 @@ input:focus:invalid {
   left: -2px;
 }
 
-/* 3 */
 input:valid {
   outline: none;
-  border: 1px solid #8bc34a;
+  border: 1px solid var(--valid-border);
 }
 
 .input-field:valid + .input-label {
-  color: #8bc34a;
+  color: var(--valid-border);
 }
 
-/* 4 */
 input:valid:not(:focus) {
-  background-color: rgba(139, 195, 74, 0.25);
+  background-color: var(--valid-background);
 }
 
 .input-field:valid:not(:focus) + .input-label {
-  color: #8bc34a;
+  color: var(--valid-border);
   background-color: rgba(139, 195, 74, 0);
 }
 
-/* INPUT FIELD FIRST NAME, LAST NAME  WORKS */
 input:invalid:not(:focus):not(:placeholder-shown) {
-  background-color: rgba(185, 35, 38, 0.25);
-  border: 1px solid #b92326; /* Red border */
+  background-color: var(--invalid-background);
+  border: 1px solid var(--invalid-border);
 }
 
 .input-field:invalid:not(:focus) + .input-label {
   background-color: rgba(185, 35, 38, 0);
 }
 
-/**/
 .pre-last {
   margin-top: 8px;
 }
 
-
 .icon-div {
-    height: 80px;
-    width: 80px;
-    background-color: #ffffff;
+  height: 80px;
+  width: 80px;
+  background-color: #ffffff;
 }
 
 .icon-name-container {
-    position: absolute;
-    width: 400px;
-    height: 80px;
+  position: absolute;
+  width: 400px;
+  height: 80px;
 }
 
 .logo-icon {
-    background-color: black;
+  background-color: black;
 }

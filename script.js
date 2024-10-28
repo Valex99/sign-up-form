@@ -25,20 +25,3 @@ submitBtn.addEventListener("click", function () {
     submitBtn.type = "submit";
   }
 });
-
-const emailInput = document.getElementById("email");
-const emailLabel = document.querySelector(".email-label");
-
-emailInput.addEventListener("blur", function () {
-  if (!emailInput.checkValidity()) {
-    // If email is invalid, update the label text
-    emailLabel.textContent = "Email (expected: name@gmail.com)";
-    emailLabel.style.color = "#b92326"; // Optional: make it more noticeable
-    emailLabel.style.left = "-2px";
-  } else {
-    // If email is valid, reset the label text
-    emailLabel.textContent = "EMAIL";
-    emailLabel.style.color = ""; // Reset color if previously changed
-    emailLabel.style.left = "-2px";
-  }
-});
