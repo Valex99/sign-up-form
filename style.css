@@ -85,16 +85,15 @@
   
     display: flex;
     flex-direction: column;
-  }
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
   
+  }
+  /*   */
   .form-item-div {
-    background-color: orange;
+    position: relative;
+    margin-bottom: 40px;
     display: inline-block;
     width: 40%;
-    margin-right: 4rem;
-    margin-bottom: 40px;
-  
-    position: relative;
   }
   
   label {
@@ -106,6 +105,11 @@
     margin-bottom: 8px;
     color: rgb(107, 106, 106);
     padding-top: 3px;
+  
+    opacity: 0; /* Initially hidden */
+    transition: all 0.3s ease;
+    pointer-events: none; /* Makes the label unclickable */
+    transform: translateY(-50%);
   }
   
   input {
@@ -122,4 +126,76 @@
     font-style: normal;
   }
   
+  button {
+      padding: 10px 20px;
+      background-color: rgb(222, 184, 135);
+      border-radius: 4px;
+      border: 1px solid black;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+  }
   
+  /* EDITING FORM INPUTS */
+  /* 1 */
+  label:not(:focus) {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* 2 */
+  /* This makes placeholder slowly disappear once input fields is clicked on */
+  input:focus::placeholder {
+    color: transparent;
+    transition: color 0.3s;
+  }
+  
+  /* Invalid used to be input[type="text"] + code */
+  input:focus:invalid {
+    outline: none;
+    border: 1px solid red;
+  }
+  
+  /* Show label when input is focused or not empty */
+  /* Show label when input is focused or has text */
+  .input-field:focus + .input-label,
+  .input-field:not(:placeholder-shown) + .input-label {
+    font-size: 12px;
+    /*color: #555;*/
+    color: red;
+    opacity: 1; /* Makes the label visible */
+    background-color: white;
+    padding: 0 5px;
+    top: 10px;
+    left: -2px;
+  }
+  
+  /* 3 */
+  input:valid {
+    outline: none;
+    border: 1px solid #8bc34a;
+  }
+  
+  .input-field:valid + .input-label {
+    color: #8bc34a;
+  }
+  
+  /* 4 */
+  input:valid:not(:focus) {
+    background-color: rgba(139, 195, 74, 0.25);
+  }
+  
+  .input-field:valid:not(:focus) + .input-label {
+    color: #8bc34a;
+    background-color: rgba(139, 195, 74, 0);
+  }
+  
+  /* INPUT FIELD FIRST NAME, LAST NAME  WORKS */
+  input:invalid:not(:focus):not(:placeholder-shown) {
+    background-color: #ffe6e6; /* Light red background */
+    border: 1px solid red; /* Red border */
+  }
+  
+  .input-field:invalid:not(:focus) + .input-label {
+    background-color: rgba(185, 35, 38, 0);
+  } 

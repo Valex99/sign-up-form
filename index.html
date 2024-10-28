@@ -19,7 +19,6 @@
       href="https://fonts.googleapis.com/css2?family=Sofia&display=swap"
       rel="stylesheet"
     />
-    />
     <!-- -->
   </head>
   <body>
@@ -44,39 +43,99 @@
       <div class="form-div">
         <form action="">
           <!-- Put items in own div'/ pharagraphs-->
-          <div class="form-item-div">
-            <label for="first_name">FIRST NAME: </label>
-            <input type="text" id="first_name" name="first_name" required />
-          </div>
-          <div class="form-item-div">
-            <label for="last_name">LAST NAME: </label>
-            <input type="text" name="last_name" id="last_name" required />
-          </div>
-          <div class="form-item-div">
-            <label for="email">EMAIL:</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-item-div">
-            <label for="phone_number">PHONE NUMBER</label>
-            <input type="tel" name="phone_number" id="phone_number" />
-          </div>
 
           <div class="form-item-div">
-            <label for="password">PASSWORD:</label>
-            <input type="text" name="password" id="password" required />
-          </div>
-
-          <div class="form-item-div">
-            <label for="repeat_password">REPEAT PASSWORD:</label>
             <input
               type="text"
+              id="first_name"
+              name="first_name"
+              class="input-field"
+              placeholder="First name *"
+              minlength="1"
+              required
+            />
+            <label for="first_name" class="input-label">FIRST NAME: </label>
+          </div>
+
+          <div class="form-item-div">
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              class="input-field"
+              placeholder="Last name *"
+              minlength="1"
+              required
+            />
+            <label for="last_name" class="input-label">LAST NAME: </label>
+          </div>
+
+          <div class="form-item-div">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="input-field"
+              placeholder="Email*"
+              minlength="1"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+            <label for="email" class="input-label">EMAIL:</label>
+          </div>
+
+          <div class="form-item-div">
+            <input
+              type="tel"
+              name="phone_number"
+              id="phone_number"
+              class="input-field"
+              placeholder="Phone number *"
+              minlength="7"
+              maxlength="15"
+              pattern="^\+?\d{7,15}$"
+              required
+            />
+            <label for="phone_number" class="input-label">PHONE NUMBER: </label>
+          </div>
+
+          <div class="form-item-div">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="input-field"
+              placeholder="Password *"
+              minlength="8"
+              maxlength="20"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$"
+              required
+            />
+            <label for="password" class="input-label">PASSWORD: </label>
+          </div>
+
+          <div class="form-item-div">
+            <input
+              type="password"
               name="repeat_password"
               id="repeat_password"
               required
+              class="input-field"
+              placeholder="Repeat Password *"
+              minlength="8"
+              maxlength="20"
             />
+            <label for="repeat_password" class="input-label"
+              >REPEAT PASSWORD:
+            </label>
+          </div>
+          <div class="pre-last"></div>
+          <div>
+            <button type="submit">Create Account</button>
           </div>
         </form>
       </div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
