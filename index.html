@@ -23,9 +23,14 @@
   </head>
   <body>
     <div class="image-container">
-      <img src="images/unisplash4.jpg" alt="Coffee Book" />
+      <img src="images/coffee-book.jpg" alt="Coffee Book" />
       <div class="logo-name-div">
-        <div class="heading">Café Haven</div>
+        <div class="icon-name-container">
+          <div class="icon-div">
+            <img src="images/logo.png" alt="logo" class="logo-icon">
+          </div>
+          <div class="heading">Café Haven</div>
+        </div>
       </div>
     </div>
     <div class="content-container">
@@ -52,6 +57,8 @@
               class="input-field"
               placeholder="First name *"
               minlength="1"
+              maxlength="20"
+              autocomplete="off"
               required
             />
             <label for="first_name" class="input-label">FIRST NAME: </label>
@@ -65,6 +72,8 @@
               class="input-field"
               placeholder="Last name *"
               minlength="1"
+              maxlength="20"
+              autocomplete="off"
               required
             />
             <label for="last_name" class="input-label">LAST NAME: </label>
@@ -76,12 +85,13 @@
               id="email"
               name="email"
               class="input-field"
-              placeholder="Email*"
+              placeholder="Email *"
               minlength="1"
               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              autocomplete="off"
               required
             />
-            <label for="email" class="input-label">EMAIL:</label>
+            <label for="email" class="input-label email-label">EMAIL:</label>
           </div>
 
           <div class="form-item-div">
@@ -94,12 +104,13 @@
               minlength="7"
               maxlength="15"
               pattern="^\+?\d{7,15}$"
+              autocomplete="off"
               required
             />
             <label for="phone_number" class="input-label">PHONE NUMBER: </label>
           </div>
 
-          <div class="form-item-div">
+          <div class="last-row">
             <input
               type="password"
               name="password"
@@ -109,21 +120,24 @@
               minlength="8"
               maxlength="20"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$"
+              autocomplete="off"
               required
             />
             <label for="password" class="input-label">PASSWORD: </label>
           </div>
 
-          <div class="form-item-div">
+          <div class="last-row">
             <input
               type="password"
               name="repeat_password"
               id="repeat_password"
-              required
               class="input-field"
               placeholder="Repeat Password *"
               minlength="8"
               maxlength="20"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$"
+              autocomplete="off"
+              required
             />
             <label for="repeat_password" class="input-label"
               >REPEAT PASSWORD:
@@ -131,7 +145,7 @@
           </div>
           <div class="pre-last"></div>
           <div>
-            <button type="submit">Create Account</button>
+            <button type="button">Create Account</button>
           </div>
         </form>
       </div>
